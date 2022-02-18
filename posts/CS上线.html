@@ -164,17 +164,11 @@
     <h1 class="title">CS上线</h1>
     
     <div class="cube-article-header">
-        <div class="cube-article-date">
+        <div class="cube-article-date page">
             <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
             <!-- moment.js对象 -->
             2022-02-14
         </div>
-        <div class="cube-article-tags">
-    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
-    
-    <a href="/tags/%E4%BB%85%E4%BE%9B%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%80%83%EF%BC%81%EF%BC%81%EF%BC%81/">#仅供学习参考！！！</a>
-    
-</div>
     </div>
     
     <div class="cube-article-content cube-markdown">
@@ -184,94 +178,77 @@
 
 <p>一、搭建服务器</p>
 <p>1.在kali中解压压缩包并且将压缩包单独放入一个文件 。</p>
-<img src="/_posts/2038/1.png" class="">
+
 
 <p>2.进入CS目录，并且给予相关权限</p>
 <p>chmod 777 *</p>
-<img src="/_posts/2038/2.png" class="">
+
 
 <p>3.查看ip地址 ifconfig</p>
 <p> 运行cs，设置服务器ip和密码    ./teamserver.sh 192.168.0.108 admin（admin是密码） </p>
 <p>注意服务的端口号为，这里默认的是 27000</p>
-<img src="/_posts/2038/3.png" class="">
+
 
 <p>4.回到win10 解压后打开文件夹 找到CobaltStrike_CN.vbs 或者CobaltStrike_eN.vbs打开</p>
 <p>IP为服务器（kali）的IP<br>端口号 在CS启动的时候可以看见端口号<br>用户名 为登录之后给别人看的名字，可以瞎写<br>密码 为之前设置的密码</p>
-<img src="/_posts/2038/4.png" class="">
 
-<img src="/_posts/2038/5.png" class="">
+
+
 
 <p>登录成功界面</p>
-<img src="/_posts/2038/6.png" class="">
+
 
 <p>二、CS简单使用</p>
 <p>1.点击左上方CobaltStrike选项——&gt;在下拉框中选择 Listeners ——&gt;在下方弹出区域中点击add  建立一个监听器</p>
-<img src="/_posts/2038/7.png" class="">
+
 
 <p>name随便取，HTTP Hosts点击旁边的加号，HTTP Port（C2）随便取</p>
 <p>HTTP Hosts 是shell反弹的主机，就是kali</p>
 <p>HTTP Port（C2） C2监听的端口</p>
-<img src="/_posts/2038/8.png" class="">
+
 
 <p>2.生成钓鱼网站</p>
 <p>Attacks  –&gt; Web Drive-by  –&gt; Clone Site</p>
-<img src="/_posts/2038/9.png" class="">
+
 
 <p>Cone URL 选择要克隆的网站网址</p>
 <p>勾上监听键盘选项</p>
-<img src="/_posts/2038/10.png" class="">
+
 
 <p>成功后会生成一个url,点击url,并且任意敲击键盘</p>
-<img src="/_posts/2038/11.png" class="">
 
-<img src="/_posts/2038/12.png" class="">
 
-<img src="/_posts/2038/13.png" class="">
+
+
+
 
 <p>3.生成木马</p>
 <p>选择 Attacks –&gt; Packages –&gt; Windows Executable</p>
 <p>Listener 选择想要监听的</p>
 <p>x64也打上勾</p>
 <p>然后点击Generate保存文件</p>
-<img src="/_posts/2038/14.png" class="">
+
 
 <p>4.双击文件，CS中就会显示上线（用虚拟机好一点，我用的物理机-。-）</p>
-<img src="/_posts/2038/15.png" class="">
+
 
 <p>5.渗透</p>
 <p>先右键靶机，把session中sleep的值改为0</p>
-<img src="/_posts/2038/16.png" class="">
 
-<img src="/_posts/2038/17.png" class="">
+
+
 
 <p>6.右键靶机点击interact渗透</p>
-<img src="/_posts/2038/18.png" class="">
 
-<img src="/_posts/2038/19.png" class="">
+
+
 
 <p>7.后渗透利用</p>
 <p>在底部框中输入命令</p>
-<img src="/_posts/2038/20.png" class="">
+
 
     </div>
 </div>
-
-<div class="cube-article-nav">
-    <ul>
-        
-        
-        <li class="next">
-            <a href="/_posts/be14.html">
-                MSF上线
-                <i class="cube-icon cube-next" aria-hidden="true"></i>
-            </a>
-        </li>
-        
-    </ul>
-</div>
-
-
-<!-- TODO 根据theme.comment的内容进行入口选择 -->
 
 
 
@@ -310,8 +287,8 @@
     
     
     <div class="count">
-        <a class="count articles"><span>3</span>文章</a>
-        <a class="count tags"><span>3</span>标签</a>
+        <a class="count articles"><span>0</span>文章</a>
+        <a class="count tags"><span>0</span>标签</a>
         <a class="count categories"><span>0</span>分类</a>
     </div>
 </div>
@@ -334,84 +311,9 @@
 
 
 
-<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
-    <div class="title">
-        <a>近期文章</a>
-    </div>
-    <ul class="list">
-        
-        
-        <li>
-            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
-            
-            <div class="normal">
-                <p class="index first">
-                    <span>1</span>
-                </p>
-                <p class="title">
-                    <a href="/_posts/2038.html" title="CS上线">CS上线</a>
-                </p>
-            </div>
-            
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>2</span>
-                </p>
-                <p class="title">
-                    <a href="/_posts/be14.html" title="MSF上线">MSF上线</a>
-                </p>
-            </div>
-        </li>
-        
-        
-        
-        <li>
-            <div class="normal">
-                <p class="index">
-                    <span>3</span>
-                </p>
-                <p class="title">
-                    <a href="/_posts/ae4b.html" title="MS17-010">MS17-010</a>
-                </p>
-            </div>
-        </li>
-        
-        
-    </ul>
-</div>
 
 
 
-
-
-<div class="cube-tagcloud cube-sidebar" id="cube-tagcloud">
-    <div class="title">
-        <a href="/tags">标签云</a>
-    </div>
-    <div class="cube-boxs">
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/%E4%BB%85%E4%BE%9B%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%80%83%EF%BC%81%EF%BC%81%EF%BC%81/">#仅供学习参考！！！</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/%E6%9C%AC%E5%AE%9E%E9%AA%8C%E4%BB%85%E4%BE%9B%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%A7%82%EF%BC%81%EF%BC%81%EF%BC%81/">#本实验仅供学习参观！！！</a>
-        </div>
-        
-        
-        <div class="cube-box ">
-            <a href="/tags/%E4%BB%85%E4%BE%9B%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%A7%82%EF%BC%81/">#仅供学习参观！</a>
-        </div>
-        
-    </div>
-</div>
 
 
 
